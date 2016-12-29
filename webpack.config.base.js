@@ -17,6 +17,9 @@ export default validate({
     }, {
       test: /\.json$/,
       loader: 'json-loader'
+    }, {
+      test: /\.node$/,
+      loader: 'node-loader'
     }]
   },
 
