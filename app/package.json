@@ -1,15 +1,21 @@
 {
-  "name": "electron-react-boilerplate",
-  "productName": "electron-react-boilerplate",
+  "name": "SPlayer",
+  "productName": "SPlayer",
   "version": "1.0.0",
-  "description": "Electron application boilerplate based on React, React Router, Webpack, React Hot Loader for rapid application development",
+  "description": "Super Cool Video Player",
   "main": "./main.js",
   "author": {
-    "name": "C. T. Lin",
-    "email": "chentsulin@gmail.com",
-    "url": "https://github.com/chentsulin"
+    "name": "Sabbir Ahmed",
+    "email": "sabbiir@gmail.com",
+    "url": "https://sabbir.io"
   },
   "license": "MIT",
   "dependencies": {
+    "wcjs-prebuilt": "^3.0.0"
+  },
+  "wcjs-prebuilt": {
+    "runtime": "electron",
+    "runtimeVersion": "v1.4.3",
+    "version": "v0.2.7"
   }
 }
