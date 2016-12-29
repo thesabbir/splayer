@@ -142,6 +142,7 @@
     "json-loader": "^0.5.4",
     "minimist": "^1.2.0",
     "mocha": "^3.2.0",
+    "node-loader": "^0.6.0",
     "react-addons-test-utils": "^15.4.1",
     "redux-logger": "^2.7.4",
     "sinon": "^1.17.6",
@@ -167,7 +168,8 @@
     "redux": "^3.6.0",
     "redux-thunk": "^2.1.0",
     "simple-line-icons": "^2.4.1",
-    "source-map-support": "^0.4.6"
+    "source-map-support": "^0.4.6",
+    "wcjs-renderer": "^1.0.2"
   },
   "devEngines": {
     "node": ">=6.x",
