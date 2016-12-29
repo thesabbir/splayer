@@ -2,3 +2,9 @@
   padding: 10px;
   background: transparent;
 }
+.buttons {
+  padding: 7px 5px;
+}
+.buttons > i {
+  padding: 5px;
+}
