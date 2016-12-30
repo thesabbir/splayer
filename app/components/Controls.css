@@ -1,6 +1,8 @@
 .container {
   padding: 10px;
   background: transparent;
+  position: absolute;
+  width: 100%;
 }
 .buttons {
   padding: 7px 5px;

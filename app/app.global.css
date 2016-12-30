@@ -1,6 +1,8 @@
 @import "~simple-line-icons/css/simple-line-icons.css";
 @import "~flexboxgrid/css/flexboxgrid.css";
 body {
+  -webkit-app-region: drag;
+  -webkit-user-select: none;
   position: relative;
   color: white;
   height: 100vh;
