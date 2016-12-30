@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
 import Controls from './Controls';
 import styles from './Player.css';
-import SPlayer from '../utils/SPlayer';
 
-const player = new SPlayer({ debug: true });
 
 class Player extends Component {
   constructor() {
@@ -14,12 +12,7 @@ class Player extends Component {
   componentDidMount() {
     document.addEventListener('dragover', e => e.preventDefault());
     document.addEventListener('drop', this.onDrop);
-    player.renderVideo(this.playerCanvas);
-    player.addEventListener('onPositionChanged', (position) => {
-      this.setState({
-        progress: (position * 100)
-      });
-    });
+    this.props.renderVideo(this.playerCanvas);
   }
 
   componentWillUnmount() {
@@ -29,13 +22,13 @@ class Player extends Component {
 
   onDrop = (e) => {
     e.preventDefault();
-    player.play(`file://${e.dataTransfer.files[0].path}`);
+    this.props.play(`file://${e.dataTransfer.files[0].path}`);
   };
 
   render() {
     return (
       <div>
-        <Controls progress={this.state.progress} togglePause={player.togglePause}/>
+        <Controls progress={this.state.progress}/>
         <canvas
           className={styles.player}
           ref={(playerCanvas) => { this.playerCanvas = playerCanvas; }}
