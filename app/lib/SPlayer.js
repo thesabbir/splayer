@@ -23,23 +23,24 @@ class Player {
     render.bind(element, this.vlc, options);
   };
 
-  play = (file: string): string => {
-    this.vlc.play(file);
-    return file;
+  play = (file: string): Object | any => {
+    let item = this.addToPlaylist(file);
+    this.vlc.playlist.playItem(item);
+    item = this.vlc.playlist.items[item];
+    console.log(item);
+    return item;
   };
 
-  addToPlaylist(item: string) {
-    this.vlc.playlist.add(item);
-  }
+  addToPlaylist = (item: string): number => this.vlc.playlist.add(item);
 
-  getPlayListItems(): Array<Object> {
+  getPlayListItems = (): Array<Object> => {
     const count = this.vlc.playlist.items.count;
     const items = [];
     for (let i = 0; i < count; i += 1) {
       items.push(this.vlc.playlist.items[i]);
     }
     return items;
-  }
+  };
 
   playOrPause(): boolean {
     this.vlc.togglePause();
