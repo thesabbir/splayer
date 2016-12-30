@@ -4,14 +4,14 @@ import { hashHistory } from 'react-router';
 import { routerMiddleware, push } from 'react-router-redux';
 import createLogger from 'redux-logger';
 import rootReducer from '../reducers';
-import playerAction from '../actions/playerActions';
+import * as playerActions from '../actions/playerActions';
 import playerMiddleware from '../lib/playerMiddleware';
 import SPlayer from '../lib/SPlayer';
 
 const player = new SPlayer({ debug: true });
 
 const actionCreators = {
-  player: playerAction,
+  playerActions,
   push
 };
 
