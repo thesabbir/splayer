@@ -14,11 +14,9 @@ import './app.global.css';
 import App from './containers/App';
 import VideoPlayer from './containers/VideoPlayer';
 import SettingsPage from './containers/SettingsPage';
+import initialState from './store/initialState';
 
-const store = configureStore({
-  player: {},
-  settings: {}
-});
+const store = configureStore(initialState);
 const history = syncHistoryWithStore(hashHistory, store);
 
 render(
