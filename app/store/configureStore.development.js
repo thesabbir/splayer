@@ -5,6 +5,10 @@ import { routerMiddleware, push } from 'react-router-redux';
 import createLogger from 'redux-logger';
 import rootReducer from '../reducers';
 import playerAction from '../actions/playerActions';
+import playerMiddleware from '../lib/playerMiddleware';
+import SPlayer from '../lib/SPlayer';
+
+const player = new SPlayer({ debug: true });
 
 const actionCreators = {
   player: playerAction,
@@ -28,7 +32,7 @@ const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ ?
   compose;
 /* eslint-enable no-underscore-dangle */
 const enhancer = composeEnhancers(
-  applyMiddleware(thunk, router, logger)
+  applyMiddleware(playerMiddleware(player), thunk, router, logger)
 );
 
 export default function configureStore(initialState: Object | void) {
