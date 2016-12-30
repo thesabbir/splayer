@@ -23,8 +23,7 @@ export function play(path: string): Action {
 
 export function pause(): CommandAction {
   return {
-    type: types.PAUSE,
-    payload: ''
+    type: types.PAUSE
   };
 }
 

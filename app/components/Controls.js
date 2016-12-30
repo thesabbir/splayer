@@ -1,8 +1,16 @@
-import React, { Component } from 'react';
+import React, {
+  Component,
+  PropTypes
+} from 'react';
 import { Line } from 'rc-progress';
 import styles from './Controls.css';
 
 class Controls extends Component {
+  static propTypes = {
+    title: PropTypes.string.isRequired,
+    progress: PropTypes.number.isRequired
+  };
+
   render() {
     return (
       <div className={styles.container}>
@@ -15,7 +23,7 @@ class Controls extends Component {
             </div>
           </div>
           <div className="col-xs-8 col-lg-10">
-            <p className={styles.title}>{this.props.info.title}</p>
+            <p className={styles.title}>{this.props.title}</p>
             <Line
               percent={this.props.progress}
               strokeWidth="0.5"

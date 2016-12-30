@@ -10,7 +10,8 @@ class Player extends Component {
   static propTypes = {
     renderVideo: PropTypes.func.isRequired,
     play: PropTypes.func.isRequired,
-    addEventLister: PropTypes.func.isRequired
+    addEventLister: PropTypes.func.isRequired,
+    nowPlaying: PropTypes.object.isRequired //eslint-disable-line react/forbid-prop-types
   };
 
   constructor() {
@@ -42,10 +43,9 @@ class Player extends Component {
   };
 
   render() {
-    console.log(this.props)
     return (
       <div>
-        <Controls progress={this.state.progress} info={this.props.nowPlaying}/>
+        <Controls progress={this.state.progress} {...this.props.nowPlaying}/>
         <canvas
           className={styles.player}
           ref={(playerCanvas) => { this.playerCanvas = playerCanvas; }}
