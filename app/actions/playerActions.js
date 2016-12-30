@@ -1,13 +1,25 @@
 import * as types from '../constants/actionTypes';
 
-export function play() {
+export function play(path) {
   return {
-    type: types.PLAY
+    type: types.PLAY,
+    payload: {
+      path
+    }
   };
 }
 
 export function pause() {
   return {
     type: types.PAUSE
+  };
+}
+
+export function renderVideo(element) {
+  return {
+    type: types.RENDER,
+    payload: {
+      element
+    }
   };
 }
