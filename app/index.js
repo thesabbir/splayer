@@ -15,7 +15,10 @@ import App from './containers/App';
 import VideoPlayer from './containers/VideoPlayer';
 import SettingsPage from './containers/SettingsPage';
 
-const store = configureStore();
+const store = configureStore({
+  player: {},
+  settings: {}
+});
 const history = syncHistoryWithStore(hashHistory, store);
 
 render(

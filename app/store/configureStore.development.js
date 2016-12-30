@@ -32,11 +32,7 @@ const enhancer = composeEnhancers(
 );
 
 export default function configureStore(initialState: Object | void) {
-  let state = {
-    player: {},
-    settings: {}
-  };
-  const store = createStore(rootReducer, state, enhancer);
+  const store = createStore(rootReducer, initialState, enhancer);
 
   if (module.hot) {
     module.hot.accept('../reducers', () =>
