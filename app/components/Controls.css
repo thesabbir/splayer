@@ -10,3 +10,7 @@
 .buttons > i {
   padding: 5px;
 }
+
+.title {
+  font-size: smaller;
+}

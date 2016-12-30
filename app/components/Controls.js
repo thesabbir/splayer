@@ -15,6 +15,7 @@ class Controls extends Component {
             </div>
           </div>
           <div className="col-xs-8 col-lg-10">
+            <p className={styles.title}>{this.props.info.title}</p>
             <Line
               percent={this.props.progress}
               strokeWidth="0.5"

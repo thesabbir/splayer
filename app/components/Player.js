@@ -1,18 +1,34 @@
-import React, { Component } from 'react';
+import React, {
+  Component,
+  PropTypes
+} from 'react';
 import Controls from './Controls';
 import styles from './Player.css';
 
 
 class Player extends Component {
+  static propTypes = {
+    renderVideo: PropTypes.func.isRequired,
+    play: PropTypes.func.isRequired,
+    addEventLister: PropTypes.func.isRequired
+  };
+
   constructor() {
     super();
-    this.state = { progress: 0 };
+    this.state = {
+      progress: 0
+    };
   }
 
   componentDidMount() {
     document.addEventListener('dragover', e => e.preventDefault());
     document.addEventListener('drop', this.onDrop);
     this.props.renderVideo(this.playerCanvas);
+    this.props.addEventLister('onPositionChanged', (position) => {
+      this.setState({
+        progress: position * 100
+      });
+    });
   }
 
   componentWillUnmount() {
@@ -26,9 +42,10 @@ class Player extends Component {
   };
 
   render() {
+    console.log(this.props)
     return (
       <div>
-        <Controls progress={this.state.progress}/>
+        <Controls progress={this.state.progress} info={this.props.nowPlaying}/>
         <canvas
           className={styles.player}
           ref={(playerCanvas) => { this.playerCanvas = playerCanvas; }}
