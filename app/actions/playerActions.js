@@ -1,6 +1,18 @@
+/**
+ * @flow
+ */
 import * as types from '../constants/actionTypes';
 
-export function play(path) {
+type Action = {
+  type: string,
+  payload: ?Object
+};
+
+type CommandAction = {
+  type: string
+};
+
+export function play(path: string): Action {
   return {
     type: types.PLAY,
     payload: {
@@ -9,13 +21,14 @@ export function play(path) {
   };
 }
 
-export function pause() {
+export function pause(): CommandAction {
   return {
-    type: types.PAUSE
+    type: types.PAUSE,
+    payload: ''
   };
 }
 
-export function renderVideo(element) {
+export function renderVideo(element: HTMLElement): Action {
   return {
     type: types.RENDER,
     payload: {
@@ -23,3 +36,14 @@ export function renderVideo(element) {
     }
   };
 }
+
+export function addEventLister(eventName: string, callback: Function): Action {
+  return {
+    type: types.ADD_PLAYER_EVENT,
+    payload: {
+      eventName,
+      callback
+    }
+  };
+}
+
