@@ -1,5 +1,6 @@
 export const PLAYING = 'PLAYER/PLAYING';
 export const PLAY = 'PLAYER/PLAY';
 export const PAUSE = 'PLAYER/PAUSE';
+export const RENDER = 'PLAYER/RENDER';
 export const CHANGED_SETTINGS_VALUE = 'SETTINGS/CHANGED';
 export const RESET_SETTINGS_VALUE = 'SETTINGS/RESET';
